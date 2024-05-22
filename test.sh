@@ -6,10 +6,14 @@ download_file() {
 
 download_file
 
-./load-cpus.sh -n 16 &
+./load-cpus.sh -n 32 &
 pid=$!
+
+kill_load_cpus() {
+  kill $pid
+}
+
+trap kill_load_cpus EXIT
 
 sleep 1
 download_file
-
-pkill yes

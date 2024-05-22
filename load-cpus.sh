@@ -38,16 +38,23 @@ if [[ ! $OPT_PROCESSES ]]; then
   exit 1
 fi
 
+processes=()
 kill_all_yes() {
-  echo [info] Killing all running yes processes
-  pkill yes
+  echo "[info] Killing all forked processes:"
+  for pid in "${processes[@]}"; do
+    kill $pid
+    echo "[info]   - Killed $pid"
+  done
 }
 
-trap kill_all_yes SIGINT
+trap kill_all_yes SIGINT SIGTERM
 
+echo "[info] Forking $OPT_PROCESSES processes:"
 for i in $(seq 1 $OPT_PROCESSES); do
-  echo [info] Spawning '`yes`' number $i
   yes > /dev/null &
+  pid=$!
+  echo "[info]   - Process $i: $pid"
+  processes+=($pid)
 done
 
 wait
