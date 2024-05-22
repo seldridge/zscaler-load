@@ -11,6 +11,8 @@ downloading a small 5MiB test file.
 
 #### Example Output
 
+The example below shows a decrease in bandwidth from 3MB/s to 70KB/s by loading
+the machine with 32 processes.
 
 ```
 # ./test.sh
