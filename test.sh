@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 download_file() {
-  time wget 'http://212.183.159.230/5MB.zip' -O /dev/null
+  time curl 'http://212.183.159.230/5MB.zip' -o /dev/null
 }
 
 download_file
