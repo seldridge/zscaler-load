@@ -11,103 +11,89 @@ downloading a small 5MiB test file.
 
 #### Example Output
 
-The example below shows a decrease in bandwidth from 3MB/s to 70KB/s by loading
-the machine with 32 processes.
+The example below shows that loading the CPU with 32 processes causes download
+speed to drop to 10% of unloaded bandwidth.
 
 ```
 # ./test.sh
---2024-05-22 19:45:34--  http://212.183.159.230/5MB.zip
-Connecting to 212.183.159.230:80... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 5242880 (5.0M) [application/zip]
-Saving to: ‘/dev/null’
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 5120k  100 5120k    0     0  2659k      0  0:00:01  0:00:01 --:--:-- 2658k
 
-/dev/null                                100%[=================================================================================>]   5.00M  3.00MB/s    in 1.7s
-
-2024-05-22 19:45:36 (3.00 MB/s) - ‘/dev/null’ saved [5242880/5242880]
-
-
-real	0m1.896s
-user	0m0.016s
-sys	0m0.043s
+real	0m1.946s
+user	0m0.021s
+sys	0m0.047s
 [info] Forking 32 processes:
-[info]   - Process 1: 26935
-[info]   - Process 2: 26936
-[info]   - Process 3: 26937
-[info]   - Process 4: 26938
-[info]   - Process 5: 26939
-[info]   - Process 6: 26940
-[info]   - Process 7: 26941
-[info]   - Process 8: 26942
-[info]   - Process 9: 26943
-[info]   - Process 10: 26944
-[info]   - Process 11: 26945
-[info]   - Process 12: 26946
-[info]   - Process 13: 26947
-[info]   - Process 14: 26948
-[info]   - Process 15: 26949
-[info]   - Process 16: 26950
-[info]   - Process 17: 26951
-[info]   - Process 18: 26952
-[info]   - Process 19: 26953
-[info]   - Process 20: 26954
-[info]   - Process 21: 26955
-[info]   - Process 22: 26956
-[info]   - Process 23: 26957
-[info]   - Process 24: 26958
-[info]   - Process 25: 26959
-[info]   - Process 26: 26960
-[info]   - Process 27: 26961
-[info]   - Process 28: 26962
-[info]   - Process 29: 26963
-[info]   - Process 30: 26964
-[info]   - Process 31: 26965
-[info]   - Process 32: 26966
---2024-05-22 19:45:37--  http://212.183.159.230/5MB.zip
-Connecting to 212.183.159.230:80... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 5242880 (5.0M) [application/zip]
-Saving to: ‘/dev/null’
+[info]   - Process 1: 64835
+[info]   - Process 2: 64836
+[info]   - Process 3: 64837
+[info]   - Process 4: 64838
+[info]   - Process 5: 64839
+[info]   - Process 6: 64840
+[info]   - Process 7: 64841
+[info]   - Process 8: 64842
+[info]   - Process 9: 64843
+[info]   - Process 10: 64844
+[info]   - Process 11: 64845
+[info]   - Process 12: 64846
+[info]   - Process 13: 64847
+[info]   - Process 14: 64848
+[info]   - Process 15: 64849
+[info]   - Process 16: 64850
+[info]   - Process 17: 64851
+[info]   - Process 18: 64852
+[info]   - Process 19: 64853
+[info]   - Process 20: 64854
+[info]   - Process 21: 64855
+[info]   - Process 22: 64856
+[info]   - Process 23: 64857
+[info]   - Process 24: 64858
+[info]   - Process 25: 64859
+[info]   - Process 26: 64860
+[info]   - Process 27: 64861
+[info]   - Process 28: 64862
+[info]   - Process 29: 64863
+[info]   - Process 30: 64864
+[info]   - Process 31: 64865
+[info]   - Process 32: 64866
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 5120k  100 5120k    0     0   251k      0  0:00:20  0:00:20 --:--:--  510k
 
-/dev/null                                100%[=================================================================================>]   5.00M  59.3KB/s    in 73s
-
-2024-05-22 19:46:51 (70.5 KB/s) - ‘/dev/null’ saved [5242880/5242880]
-
-
-real	1m13.792s
+real	0m20.373s
 user	0m0.020s
-sys	0m0.051s
+sys	0m0.037s
 [info] Killing all forked processes:
-[info]   - Killed 26935
-[info]   - Killed 26936
-[info]   - Killed 26937
-[info]   - Killed 26938
-[info]   - Killed 26939
-[info]   - Killed 26940
-[info]   - Killed 26941
-[info]   - Killed 26942
-[info]   - Killed 26943
-[info]   - Killed 26944
-[info]   - Killed 26945
-[info]   - Killed 26946
-[info]   - Killed 26947
-[info]   - Killed 26948
-[info]   - Killed 26949
-[info]   - Killed 26950
-[info]   - Killed 26951
-[info]   - Killed 26952
-[info]   - Killed 26953
-[info]   - Killed 26954
-[info]   - Killed 26955
-[info]   - Killed 26956
-[info]   - Killed 26957
-[info]   - Killed 26958
-[info]   - Killed 26959
-[info]   - Killed 26960
-[info]   - Killed 26961
-[info]   - Killed 26962
-[info]   - Killed 26963
-[info]   - Killed 26964
-[info]   - Killed 26965
-[info]   - Killed 26966
+[info]   - Killed 64835
+[info]   - Killed 64836
+[info]   - Killed 64837
+[info]   - Killed 64838
+[info]   - Killed 64839
+[info]   - Killed 64840
+[info]   - Killed 64841
+[info]   - Killed 64842
+[info]   - Killed 64843
+[info]   - Killed 64844
+[info]   - Killed 64845
+[info]   - Killed 64846
+[info]   - Killed 64847
+[info]   - Killed 64848
+[info]   - Killed 64849
+[info]   - Killed 64850
+[info]   - Killed 64851
+[info]   - Killed 64852
+[info]   - Killed 64853
+[info]   - Killed 64854
+[info]   - Killed 64855
+[info]   - Killed 64856
+[info]   - Killed 64857
+[info]   - Killed 64858
+[info]   - Killed 64859
+[info]   - Killed 64860
+[info]   - Killed 64861
+[info]   - Killed 64862
+[info]   - Killed 64863
+[info]   - Killed 64864
+[info]   - Killed 64865
+[info]   - Killed 64866
 ```
